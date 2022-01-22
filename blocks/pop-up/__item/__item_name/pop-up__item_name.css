@@ -1,0 +1,11 @@
+.pop-up__item_name{
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width:935px) {
+
+.pop-up__item_name{
+    margin-bottom: 43px;
+}    
+    
+}

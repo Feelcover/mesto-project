@@ -1,0 +1,36 @@
+.pop-up__close{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    left: 101%;
+    bottom: 103%;
+    align-self: center;
+    transition: all 0.4s ease-in-out;
+}
+
+.pop-up__close:hover{
+    opacity: 0.6;
+}
+
+.pop-up__close:active{
+    transition: none;
+    opacity: 0.4;
+}
+
+@media screen and (max-width:935px) {
+
+.pop-up__close{
+    left: 93%;
+    bottom: 105%;
+    width: 20px;
+    height: 20px;
+}
+
+}

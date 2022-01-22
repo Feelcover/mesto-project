@@ -1,0 +1,25 @@
+.elements{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 17px;
+    transition: all 0.6s ease-in-out;
+    
+    padding: 36px 0 67px;
+}
+@media screen and (max-width: 930px) {
+    
+.elements{
+    grid-template-columns:repeat(2, 282px);
+}   
+    
+}
+
+@media screen and (max-width: 630px) {
+    
+.elements{
+    grid-template-columns: 282px;
+    padding: 36px 0 48px;
+}   
+        
+}

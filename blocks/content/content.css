@@ -1,0 +1,13 @@
+.content{
+    min-width: 282px;
+    color: #FFFFFF;
+    transition: all 0.6s ease-in-out;
+    box-sizing: border-box;
+}
+@media screen and (max-width: 900px) {
+
+.content{
+    padding: 0 19px;
+}
+
+}

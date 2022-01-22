@@ -1,17 +1,26 @@
 # Проект: Место
 
-### Обзор
+### Описание:
 
-* Figma
-* Картинки
 
-**Figma**
+Проект Место. Сделан в рамках курса [Яндекс Практикум](https://practicum.yandex.ru/profile/web-plus/).
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+Создан по макету [Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
 
-**Картинки**
+**Технологии:**
+* BEM Nested
+* FlexBox
+* Grid Layout
+* Adaptive 
+* CSS 3
+* HTML 5
+* Git
+* Git Pages
+* FIGMA
 
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
+### Cсылка на просмотр работы: [ССЫЛКА](https://feelcover.github.io/mesto-project/)
 
-Удачи!
+                                        
+
+
+**Спасибо за внимание**

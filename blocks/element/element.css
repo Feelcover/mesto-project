@@ -1,0 +1,13 @@
+.element{
+    max-width: 282px;
+    height: 361px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #000000;
+    box-sizing: border-box;
+}
