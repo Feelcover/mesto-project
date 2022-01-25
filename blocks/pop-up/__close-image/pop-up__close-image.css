@@ -1,14 +1,12 @@
-.pop-up__close-image{
-    width: 32px;
-    height: 32px;
-    object-fit: cover;
+.pop-up__close-image {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
 }
 
-@media screen and (max-width:935px) {
-
-.pop-up__close-image{
+@media screen and (max-width: 935px) {
+  .pop-up__close-image {
     width: 20px;
-    height: 20px;    
-}
-
+    height: 20px;
+  }
 }

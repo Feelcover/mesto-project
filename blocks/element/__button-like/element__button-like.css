@@ -1,24 +1,18 @@
-.element__button-like{
-    width: 22px;
-    height: 19px;
-    margin: 5px 1px 0 0;
-    padding: 0;
-    background: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    border: none;
-    transition: all 0.4s ease-in-out;
+.element__button-like {
+  width: 22px;
+  height: 19px;
+  margin: 5px 1px 0 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: none;
+  transition: all 0.4s ease-in-out;
 }
-.element__button-like:hover{
-    opacity: 0.5;
+.element__button-like:hover {
+  opacity: 0.5;
 }
-.element__button-like:active{
-    opacity: 0.4;
-    transition: none;
-}
-
-
-
-.element__button-like_active{
-    background-image: url(./images/like-button-active.svg);
+.element__button-like:active {
+  opacity: 0.4;
+  transition: none;
 }

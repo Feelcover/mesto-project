@@ -1,13 +1,15 @@
-.element{
-    max-width: 282px;
-    height: 361px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    overflow: hidden;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    color: #000000;
-    box-sizing: border-box;
+.element {
+  display: grid;
+  grid-template: minmax(282px, 1fr) max-content/ 1fr;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 320px) {
+  .element {
+    grid-template: 282px 79px/ 282px;
+  }
 }

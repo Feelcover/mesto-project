@@ -1,17 +1,17 @@
-.profile{
-    width: 100%;
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: all 0.6s ease-in-out;
+.profile {
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0 51px;
+  transition: all 0.6s ease-in-out;
 }
 
-@media screen and (max-width: 600px) {
-   
-.profile{
+@media screen and (max-width: 900px) {
+  .profile {
     min-height: 286px;
     flex-direction: column;
-}
-
+    padding: 42px 0 36px;
+  }
 }

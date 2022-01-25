@@ -1,8 +1,14 @@
-.element__description{
-    max-width: 246px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 25px 21px 31px;
-    box-sizing: border-box;
+.element__description {
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 320px) {
+  .element__description {
+    padding: 0 15px 0 21px;
+  }
 }

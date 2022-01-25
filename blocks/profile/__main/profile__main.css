@@ -1,16 +1,12 @@
-.profile__main{
-    padding: 40px 0 51px;
-    display: flex;
-    transition: all 0.6s ease-in-out;
+.profile__main {
+  display: flex;
+  transition: all 0.6s ease-in-out;
 }
 
-@media screen and (max-width: 700px) {
-
-.profile__main{
-    padding: 42px 0 36px;
+@media screen and (max-width: 900px) {
+  .profile__main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}    
-
+  }
 }
