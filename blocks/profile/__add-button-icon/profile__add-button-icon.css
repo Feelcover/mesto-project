@@ -3,9 +3,9 @@
   height: 22px;
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 900px) {
   .profile__add-button-icon {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 }

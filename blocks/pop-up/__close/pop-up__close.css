@@ -9,7 +9,7 @@
   cursor: pointer;
   position: absolute;
   border: none;
-  right: -10%;
+  right: -9%;
   top: -12%;
   align-self: center;
   transition: all 0.4s ease-in-out;
@@ -26,8 +26,8 @@
 
 @media screen and (max-width: 935px) {
   .pop-up__close {
-    right: -1%;
-    top: -11%;
+    right: 2%;
+    top: -14%;
     width: 20px;
     height: 20px;
   }
