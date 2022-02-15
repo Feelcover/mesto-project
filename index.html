@@ -155,7 +155,7 @@
 
 
 
-    <div class="pop-up">
+    <div class="pop-up" id="editPop-up">
       <div class="pop-up__elements">
         <button class="pop-up__close" type="button">
           <img
@@ -179,6 +179,34 @@
               name="description"
               placeholder="О себе"
               value="Исследователь океана"
+            />
+          <button class="pop-up__submit" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="pop-up" id="addPop-up">
+      <div class="pop-up__elements">
+        <button class="pop-up__close" type="button">
+          <img
+            class="pop-up__close-image"
+            src="./images/Close-Icon.svg"
+            alt="Закрыть"
+          />
+        </button>
+        <h2 class="pop-up__heading">Новое место</h2>
+        <form class="pop-up__container" action="#" name="form1">
+            <input
+              class="pop-up__item"
+              type="text"
+              name="name"
+              placeholder="Название"
+            />
+            <input
+              class="pop-up__item"
+              type="text"
+              name="description"
+              placeholder="Ссылка на фото"
             />
           <button class="pop-up__submit" type="submit">Сохранить</button>
         </form>
