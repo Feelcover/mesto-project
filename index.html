@@ -47,104 +47,8 @@
         </button>
       </section>
 
-      <section class="elements">
+      <section class="elements"></section>
 
-        <article class="element">
-          <img class="element__image" src="./images/Arkhyz.jpg" alt="Архыз" />
-          <div class="element__description">
-            <h2 class="element__title">Архыз</h2>
-            <button
-              class="element__button-like element__button-like_active"
-              type="button"
-            >
-              <img
-                class="element__button-like-icon"
-                src="./images/like-button.svg"
-                alt="лайк"
-              />
-            </button>
-          </div>
-        </article>
-
-        <article class="element">
-          <img class="element__image" src="./images/dombai.jpg" alt="домбай" />
-          <div class="element__description">
-            <h2 class="element__title">Домбай</h2>
-            <button class="element__button-like" type="button">
-              <img
-                class="element__button-like-icon"
-                src="./images/like-button.svg"
-                alt="лайк"
-              />
-            </button>
-          </div>
-        </article>
-
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/karachaevsk.jpg"
-            alt="Карачаевск"
-          />
-          <div class="element__description">
-            <h2 class="element__title">Карачаево-Черкессия</h2>
-            <button class="element__button-like" type="button">
-              <img
-                class="element__button-like-icon"
-                src="./images/like-button.svg"
-                alt="лайк"
-              />
-            </button>
-          </div>
-        </article>
-
-        <article class="element">
-          <img class="element__image" src="./images/Rostov.jpeg" alt="Ростов" />
-          <div class="element__description">
-            <h2 class="element__title">Ростов-на-Дону</h2>
-            <button class="element__button-like" type="button">
-              <img
-                class="element__button-like-icon"
-                src="./images/like-button.svg"
-                alt="лайк"
-              />
-            </button>
-          </div>
-        </article>
-
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/stavropol.jpg"
-            alt="Ставрополь"
-          />
-          <div class="element__description">
-            <h2 class="element__title">Ставрополь</h2>
-            <button class="element__button-like" type="button">
-              <img
-                class="element__button-like-icon"
-                src="./images/like-button.svg"
-                alt="лайк"
-              />
-            </button>
-          </div>
-        </article>
-
-        <article class="element">
-          <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус" />
-          <div class="element__description">
-            <h2 class="element__title">Эльбрус</h2>
-            <button class="element__button-like" type="button">
-              <img
-                class="element__button-like-icon"
-                src="./images/like-button.svg"
-                alt="лайк"
-              />
-            </button>
-          </div>
-        </article>
-
-      </section>
     </main>
 
 
@@ -165,16 +69,16 @@
           />
         </button>
         <h2 class="pop-up__heading">Редактировать профиль</h2>
-        <form class="pop-up__container" action="#" name="form1">
+        <form class="pop-up__container" action="#" name="edit-profile">
             <input
-              class="pop-up__item"
+              class="pop-up__item pop-up__item_data_name"
               type="text"
               name="name"
               placeholder="Имя"
               value="Жак-Ив Кусто"
             />
             <input
-              class="pop-up__item"
+              class="pop-up__item pop-up__item_data_description"
               type="text"
               name="description"
               placeholder="О себе"
@@ -195,15 +99,15 @@
           />
         </button>
         <h2 class="pop-up__heading">Новое место</h2>
-        <form class="pop-up__container" action="#" name="form1">
+        <form class="pop-up__container" action="#" name="add-profile">
             <input
-              class="pop-up__item"
+              class="pop-up__item pop-up__item_data_name"
               type="text"
               name="name"
               placeholder="Название"
             />
             <input
-              class="pop-up__item"
+              class="pop-up__item pop-up__item_data_description"
               type="text"
               name="description"
               placeholder="Ссылка на фото"
@@ -213,6 +117,42 @@
       </div>
     </div>
 
+    <div class="pop-up" id="OpenImage">
+      <div class="pop-up__fullscreen-container">
+        <button class="pop-up__close" type="button">
+          <img
+            class="pop-up__close-image"
+            src="./images/Close-Icon.svg"
+            alt="Закрыть меню"
+          />
+        </button>
+        <figure class="pop-up__figure">
+          <img
+            class="pop-up__fullscreen-image"
+            src="#"
+            alt="Фото"
+          />
+          <figcaption class="pop-up__image-description"></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <template class="element-template">
+      <article class="element">
+        <button class="element__button-delete" type="button">
+        </button>
+        <img class="element__image" 
+          src="#"
+          alt="картинка" />
+        <div class="element__description">
+          <h2 class="element__title"></h2>
+          <button class="element__button-like" type="button"></button>
+        </div>
+      </article>
+    </template>
+
+
+    <script src="./scripts/script.js"></script>
   </body>
 
 </html>

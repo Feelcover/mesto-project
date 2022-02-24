@@ -1,11 +1,12 @@
 .element {
   display: grid;
-  grid-template: minmax(282px, 1fr) max-content/ 1fr;
+  grid-template: minmax(282px, 1fr) / 1fr;
   overflow: hidden;
   border-radius: 10px;
   background-color: #ffffff;
   color: #000000;
-  box-sizing: border-box;
+  position: relative;
+  transition: all 0.6s ease-in-out;
 }
 
 @media screen and (max-width: 320px) {
