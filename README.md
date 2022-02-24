@@ -17,6 +17,7 @@
 * Git
 * Git Pages
 * FIGMA
+* JavaScript
 
 ### Cсылка на просмотр работы: [ССЫЛКА](https://feelcover.github.io/mesto-project/)
 
