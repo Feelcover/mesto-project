@@ -126,7 +126,6 @@ const addClose = addPopup.querySelector('.pop-up__close');
 addClose.addEventListener('click', (evt) => {
   const clickClose = evt.target.closest('.pop-up');
   closePopup(clickClose);
-
   popupAddForm.reset();
 });
 
