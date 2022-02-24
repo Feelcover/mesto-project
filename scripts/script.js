@@ -6,10 +6,10 @@ const contentPage = document.querySelector('.content'); // Контентная 
 
 const elementTemplate = document.querySelector('.element-template'); // Шаблон элемента
 
-const Elements = contentPage.querySelector('.elements'); //Директория для вставки элементов
+const elements = contentPage.querySelector('.elements'); //Директория для вставки элементов
 
-const Profile = contentPage.querySelector('.profile'); // Находим секцию профиля
-const profileMain = Profile.querySelector('.profile__main'); // Контентный блок профиля
+const profile = contentPage.querySelector('.profile'); // Находим секцию профиля
+const profileMain = profile.querySelector('.profile__main'); // Контентный блок профиля
 
 
 const profileInfo = contentPage.querySelector('.profile__info'); //Поля ввода профиля
@@ -22,7 +22,7 @@ const addPopup = document.querySelector('#addPop-up'); // Добавление �
 const addForm = addPopup.querySelector('.pop-up__container'); // форма добавления элемента
 const addCardName = addPopup.querySelector('.pop-up__item_data_name'); // Поле ввода названия
 const addCardDescription = addPopup.querySelector('.pop-up__item_data_description'); //Поле ввода ссылки на фото
-const profileAddButton = Profile.querySelector('.profile__add-button'); // Добавление профиля
+const profileAddButton = profile.querySelector('.profile__add-button'); // Добавление профиля
 
 
 
@@ -106,7 +106,7 @@ function createElement(initialElement) {
 
 // Вставка элемента в DOM-дерево
 function addElement(initialElement) {
-    Elements.prepend(createElement(initialElement));
+    elements.prepend(createElement(initialElement));
 }
 
 // Рендер массива
