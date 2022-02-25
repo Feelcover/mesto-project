@@ -3,4 +3,9 @@
   height: 100%;
   object-fit: cover;
   background-color: black;
+  transition: all 0.4s ease-in-out;
+  z-index: 0;
 }
+ .element__image:hover {
+   opacity: 0.85;
+ }

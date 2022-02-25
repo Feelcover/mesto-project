@@ -64,9 +64,10 @@ function openPopup(popup) {
 //Добавление элементов
 function createElement(initialElement) {
     const initialElements = elementTemplate.content.cloneNode(true); // Клонирование элемента
+    const imageElement = initialElements.querySelector('.element__image'); // Изображение элемента
     initialElements.querySelector('.element__title').textContent = initialElement.name; // Имя элемента
-    initialElements.querySelector('.element__image').src = initialElement.link; // Изображение элемента
-    initialElements.querySelector('.element__image').alt = initialElement.name; // Альтернатива при ошибке загрузки фото
+    imageElement.src = initialElement.link; // Ссылка на изображение
+    imageElement.alt = initialElement.name; // Альтернатива при ошибке загрузки фото
 
     // Кнопка лайка
     initialElements
@@ -117,23 +118,20 @@ const reverseElements = сontentElements.reverse();
 // Закрыть окно редактирования
 const editClose = editPopup.querySelector('.pop-up__close');
 editClose.addEventListener('click', (evt) => {
-  const clickClose = evt.target.closest('.pop-up');
-  closePopup(clickClose);
+  closePopup(editPopup);
 });
 
 // Закрыть окно добавления
 const addClose = addPopup.querySelector('.pop-up__close');
 addClose.addEventListener('click', (evt) => {
-  const clickClose = evt.target.closest('.pop-up');
-  closePopup(clickClose);
-  popupAddForm.reset();
+  closePopup(addPopup);
+  addForm.reset();
 });
 
 // Закрыть окно с фото
 const photoClose = openImage.querySelector('.pop-up__close');
 photoClose.addEventListener('click', (evt) => {
-  const clickClose = evt.target.closest('.pop-up');
-  closePopup(clickClose);
+  closePopup(openImage);
 });
 
 // Кнопка редактирования профиля
@@ -156,8 +154,7 @@ editForm.addEventListener('submit', (evt) => {
     // Заполнение полей введенными данными
     profileName.textContent = editCardName.value;
     profileDescription.textContent = editCardDescription.value;
-    const clickClose = evt.target.closest('.pop-up');
-    closePopup(clickClose);
+    closePopup(editPopup);
   });
 
 
@@ -175,6 +172,5 @@ addForm.addEventListener('submit', (evt) => {
     addElement(newElement);
     addForm.reset();
     //закрытие попапа
-    const clickClose = evt.target.closest('.pop-up');
-    closePopup(clickClose);
+    closePopup(addPopup);
   });
