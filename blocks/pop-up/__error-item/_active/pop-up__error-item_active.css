@@ -1,0 +1,17 @@
+.pop-up__error-item_active {
+    margin-bottom: 13px;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: flex-start;
+    color: #ff0000;
+    width: 84%;
+  }
+  
+  .pop-up__error-item_active:last-of-type {
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 15px;
+    color: #ff0000;
+    display: flex;
+  }

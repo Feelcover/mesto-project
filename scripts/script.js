@@ -36,7 +36,7 @@ const editButton = document.querySelector('.profile__edit-button'); // Кноп�
 const openImage = document.querySelector('#OpenImage'); // Форма открытия изображения
 const fullScreenImage = openImage.querySelector('.pop-up__fullscreen-image'); // Изображение
 const fullscreenImageDescription = openImage.querySelector('.pop-up__image-description'); // Описание изображения
-
+const allPopup = document.querySelectorAll('.pop-up'); // Все окна
 
  //Массив с контентом
  const сontentElements = 
@@ -52,15 +52,32 @@ const fullscreenImageDescription = openImage.querySelector('.pop-up__image-descr
 //функция открытия карточки
 function openPopup(popup) {
     popup.classList.add('pop-up_opened');
-  }
+    document.addEventListener('keydown', closeEsc);
+}
   
-  //Функция закрытия карточки
-  function closePopup(popup) {
-    popup.classList.remove('pop-up_opened');
+//Функция закрытия карточки
+function closePopup(popup) {
+  popup.classList.remove('pop-up_opened');
+  document.removeEventListener('keydown', closeEsc);
+}
+
+// Функция закрытия клавишей ESC
+function closeEsc(evt) {
+  if (evt.key === "Escape") {
+    let openedPopup = document.querySelector('.pop-up_opened')
+    closePopup(openedPopup);
   }
+}
 
+//Закрытие окон кликом на оверлей
+allPopup.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('pop-up_opened')) {
+      closePopup(popup);
+    }
+  });
+});
   
-
 //Добавление элементов
 function createElement(initialElement) {
     const initialElements = elementTemplate.content.cloneNode(true); // Клонирование элемента
@@ -174,3 +191,7 @@ addForm.addEventListener('submit', (evt) => {
     //закрытие попапа
     closePopup(addPopup);
   });
+
+
+
+

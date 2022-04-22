@@ -69,21 +69,33 @@
           />
         </button>
         <h2 class="pop-up__heading">Редактировать профиль</h2>
-        <form class="pop-up__container" action="#" name="edit-profile">
+        <form class="pop-up__container" 
+              action="#" 
+              method="get" 
+              name="edit-profile" 
+              novalidate>
             <input
               class="pop-up__item pop-up__item_data_name"
               type="text"
               name="name"
               placeholder="Имя"
               value="Жак-Ив Кусто"
+              minlength="2"
+              maxlength="40"
+              required
             />
+            <span class="profilename-error pop-up__error-item"></span>
             <input
               class="pop-up__item pop-up__item_data_description"
               type="text"
               name="description"
               placeholder="О себе"
               value="Исследователь океана"
+              minlength="2"
+              maxlength="40"
+              required
             />
+            <span class="profiledescription-error pop-up__error-item"></span>
           <button class="pop-up__submit" type="submit">Сохранить</button>
         </form>
       </div>
@@ -99,19 +111,29 @@
           />
         </button>
         <h2 class="pop-up__heading">Новое место</h2>
-        <form class="pop-up__container" action="#" name="add-profile">
+        <form class="pop-up__container"
+              action="#"
+              method="get" 
+              name="add-profile" 
+              novalidate>
             <input
               class="pop-up__item pop-up__item_data_name"
               type="text"
               name="name"
               placeholder="Название"
+              minlength="2"
+              maxlength="40"
+              required
             />
+            <span class="dataname-error pop-up__error-item"></span>
             <input
               class="pop-up__item pop-up__item_data_description"
               type="text"
               name="description"
               placeholder="Ссылка на фото"
+              required
             />
+            <span class="datadescription-error pop-up__error-item"></span>
           <button class="pop-up__submit" type="submit">Сохранить</button>
         </form>
       </div>

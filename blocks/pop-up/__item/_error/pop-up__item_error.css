@@ -1,0 +1,9 @@
+.pop-up__item_error {
+  border-bottom: 1px solid #ff0000;
+  margin: 0 0 5px 0;
+}
+
+.pop-up__item_error:last-of-type {
+  margin: 0 0 5px 0;
+  padding: 0 0 10px;
+}
