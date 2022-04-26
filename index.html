@@ -77,25 +77,27 @@
             <input
               class="pop-up__item pop-up__item_data_name"
               type="text"
-              name="name"
+              name="editname"
+              id="editname"
               placeholder="Имя"
               value="Жак-Ив Кусто"
               minlength="2"
               maxlength="40"
               required
             />
-            <span class="profilename-error pop-up__error-item"></span>
+            <span class="editname-error pop-up__error-item "></span>
             <input
               class="pop-up__item pop-up__item_data_description"
               type="text"
-              name="description"
+              name="editdescription"
+              id="editdescription"
               placeholder="О себе"
               value="Исследователь океана"
               minlength="2"
               maxlength="40"
               required
             />
-            <span class="profiledescription-error pop-up__error-item"></span>
+            <span class="editdescription-error pop-up__error-item"></span> 
           <button class="pop-up__submit" type="submit">Сохранить</button>
         </form>
       </div>
@@ -119,21 +121,23 @@
             <input
               class="pop-up__item pop-up__item_data_name"
               type="text"
-              name="name"
+              name="addname"
+              id="addname"
               placeholder="Название"
               minlength="2"
               maxlength="40"
               required
             />
-            <span class="dataname-error pop-up__error-item"></span>
+            <span class="addname-error pop-up__error-item"></span><!--исправил класс-->
             <input
               class="pop-up__item pop-up__item_data_description"
-              type="text"
-              name="description"
+              type="url"
+              name="addlink"
+              id="addlink"
               placeholder="Ссылка на фото"
               required
             />
-            <span class="datadescription-error pop-up__error-item"></span>
+            <span class="addlink-error pop-up__error-item"></span><!--исправил класс-->
           <button class="pop-up__submit" type="submit">Сохранить</button>
         </form>
       </div>
