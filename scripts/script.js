@@ -23,6 +23,7 @@ const addForm = addPopup.querySelector('.pop-up__container'); // форма до
 const addCardName = addPopup.querySelector('.pop-up__item_data_name'); // Поле ввода названия
 const addCardDescription = addPopup.querySelector('.pop-up__item_data_description'); //Поле ввода ссылки на фото
 const profileAddButton = profile.querySelector('.profile__add-button'); // Добавление профиля
+const popupSubmitButton = addForm.querySelector('.pop-up__submit')//добавление кнопки сабмит 
 
 
 
@@ -190,14 +191,13 @@ addForm.addEventListener('submit', (evt) => {
     addForm.reset();
     //закрытие попапа
     closePopup(addPopup);
+   
   });
 
   
 
 
 //Валидация форм
-
-
 const showInputError = (formElement, inputElement, errorMessage, settings) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(settings.inputErrorClass);
@@ -209,7 +209,7 @@ const hideInputError = (formElement, inputElement, settings) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(settings.inputErrorClass);
   errorElement.classList.remove(settings.errorClass);
-  errorElement.textContent = "";
+  errorElement.textContent = '';
 };
 
 const checkInputValidity = (formElement, inputElement, settings) => {
@@ -248,7 +248,7 @@ const setEventListeners = (formElement, settings) => {
   );
   toggleButtonState(inputList, buttonElement, settings);
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", function () {
+    inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement, settings);
       toggleButtonState(inputList, buttonElement, settings);
     });
@@ -258,19 +258,20 @@ const setEventListeners = (formElement, settings) => {
 const enableValidation = (settings) => {
   const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (evt) {
+    formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
     });
     setEventListeners(formElement, settings);
   });
 };
+
 enableValidation({
-  formSelector: ".pop-up__container",
-  inputSelector: ".pop-up__item",
-  submitButtonSelector: ".pop-up__submit",
-  inactiveButtonClass: "pop-up__submit_disabled",
-  inputErrorClass: "pop-up__item_error",
-  errorClass: "pop-up__error-item_active",
+  inactiveButtonClass: 'pop-up__submit_disabled',
+  inputErrorClass: 'pop-up__item_error',
+  errorClass: 'pop-up__error-item_active',
+  formSelector: '.pop-up__container',
+  inputSelector: '.pop-up__item',
+  submitButtonSelector: '.pop-up__submit',
 });
 
 
