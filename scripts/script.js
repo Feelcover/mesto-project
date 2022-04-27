@@ -70,14 +70,20 @@ function closeEsc(evt) {
   }
 }
 
-//Закрытие окон кликом на оверлей
+//Закрытие окон
 allPopup.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('pop-up_opened')) {
       closePopup(popup);
     }
   });
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.closest('.pop-up__close')) {
+      closePopup(popup);
+    }
+  });
 });
+
   
 //Добавление элементов
 function createElement(initialElement) {
@@ -133,24 +139,6 @@ const reverseElements = сontentElements.reverse();
 сontentElements.forEach(addElement);
 
 
-// Закрыть окно редактирования
-const editClose = editPopup.querySelector('.pop-up__close');
-editClose.addEventListener('click', (evt) => {
-  closePopup(editPopup);
-});
-
-// Закрыть окно добавления
-const addClose = addPopup.querySelector('.pop-up__close');
-addClose.addEventListener('click', (evt) => {
-  closePopup(addPopup);
-  addForm.reset();
-});
-
-// Закрыть окно с фото
-const photoClose = openImage.querySelector('.pop-up__close');
-photoClose.addEventListener('click', (evt) => {
-  closePopup(openImage);
-});
 
 // Кнопка редактирования профиля
 editButton.addEventListener('click', function () {
