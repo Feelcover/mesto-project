@@ -1,7 +1,9 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: { main: './src/index.js' },
+    entry: { main: './src/components/index.js' },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js',
@@ -20,7 +22,16 @@ module: {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: '/node_modules/'
-    }
-    ]
-  }
+    },
+    {
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: 'asset/resource'
+      },]
+  }, 
+  plugins: [
+  new HtmlWebpackPlugin({
+    template: './src/index.html'
+  }),
+  new CleanWebpackPlugin(),
+]
 }
