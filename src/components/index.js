@@ -12,7 +12,8 @@ import {
   editCardName,
   editCardDescription,
   editButton,
-  allPopup
+  allPopups,
+  popupSubmitButton
 } from './data.js';
 import { addElement, cardRender } from './card';
 import { сontentElements } from './сontentElements.js';
@@ -23,7 +24,7 @@ import { closePopup, openPopup } from './modal.js';
 cardRender(сontentElements);
 
 //Закрытие окон
-allPopup.forEach((popup) => {
+allPopups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('pop-up_opened')) {
       closePopup(popup);
@@ -61,6 +62,8 @@ addForm.addEventListener('submit', (evt) => {
     addForm.reset();
     //закрытие попапа
     closePopup(addPopup);
+    popupSubmitButton.classList.add('pop-up__submit_disabled');
+    popupSubmitButton.disabled = true;
   });
 
 // Кнопка редактирования профиля

@@ -34,7 +34,7 @@ const editButton = document.querySelector('.profile__edit-button'); // Кноп�
 const openImage = document.querySelector('#OpenImage'); // Форма открытия изображения
 const fullScreenImage = openImage.querySelector('.pop-up__fullscreen-image'); // Изображение
 const fullscreenImageDescription = openImage.querySelector('.pop-up__image-description'); // Описание изображения
-const allPopup = document.querySelectorAll('.pop-up'); // Все окна
+const allPopups = document.querySelectorAll('.pop-up'); // Все окна
 
 export {
     contentPage,
@@ -59,5 +59,5 @@ export {
     openImage,
     fullScreenImage,
     fullscreenImageDescription,
-    allPopup
+    allPopups
 }
