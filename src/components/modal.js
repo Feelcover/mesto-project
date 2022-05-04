@@ -13,7 +13,7 @@ export function closePopup(popup) {
 // Функция закрытия клавишей ESC
 function closeEsc(evt) {
   if (evt.key === "Escape") {
-    let openedPopup = document.querySelector('.pop-up_opened')
+    const openedPopup = document.querySelector('.pop-up_opened')
     closePopup(openedPopup);
   }
 }
