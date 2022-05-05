@@ -31,21 +31,14 @@ function createElement(initialElement) {
     });
 
     // Окно с изображением
-    initialElements
-    .querySelector('.element__image')
-    .addEventListener('click', (evt) => {
-      const elementLink = evt.target.src;                     
-      const elementName = evt.target.closest('.element');
-      const elementText = elementName.querySelector('.element__title').textContent;
-      
+    imageElement.addEventListener('click', (evt) => {         
       openPopup(openImage);  // Открытие окна с фото
-    
     // Присвоение ссылки картинке
-      fullScreenImage.src = elementLink;
-      fullscreenImageDescription.textContent = elementText;         
-      fullScreenImage.alt = elementText;
+      fullScreenImage.src = initialElement.link;
+      fullscreenImageDescription.textContent = initialElement.name;         
+      fullScreenImage.alt = initialElement.name;
     });
-
+    
     return initialElements;
 }
 
