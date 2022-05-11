@@ -1,4 +1,4 @@
-import { openPopup } from './modal';
+import { openPopup } from './utils';
 import {
     elementTemplate,
     elements,

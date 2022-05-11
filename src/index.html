@@ -20,11 +20,13 @@
 
       <section class="profile">
         <div class="profile__main">
+          <button class="profile__avatar-button">
           <img
             class="profile__avatar"
             src="<%=require('./images/kusto_avatar.jpg')%>"
             alt="Аватар"
           />
+        </button>
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <p class="profile__description">Исследователь океана</p>
@@ -162,16 +164,65 @@
       </div>
     </div>
 
+    <div class="pop-up" id="confirmPop-up">
+      <div class="pop-up__elements">
+        <button class="pop-up__close" type="button">
+          <img
+            class="pop-up__close-image"
+            src="<%=require('./images/Close-Icon.svg')%>"
+            alt="Закрыть"
+          />
+        </button>
+        <h2 class="pop-up__heading pop-up__heading-confirm">Вы уверены?</h2>
+        <form class="pop-up__container"
+              name="confirm-form" 
+              action="#" 
+              method="get" 
+              novalidate>
+              <button class="pop-up__submit" type="submit">Да</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="pop-up" id="createAvatarPopup">
+      <div class="pop-up__elements">
+        <button class="pop-up__close" type="button">
+          <img
+            class="pop-up__close-image"
+            src="<%=require('./images/Close-Icon.svg')%>"
+            alt="Закрыть"
+          />
+        </button>
+        <h2 class="pop-up__heading">Обновить аватар</h2>
+        <form class="pop-up__container"
+              name="createAvatar" 
+              novalidate>
+            <input
+              class="pop-up__item pop-up__item_data_description"
+              type="url"
+              name="avatarLink"
+              id="avatarLink"
+              placeholder="Ссылка на фото"
+              required
+            />
+            <span class="addlink-error pop-up__error-item"></span>
+          <button class="pop-up__submit" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
     <template class="element-template">
       <article class="element">
-        <button class="element__button-delete" type="button">
-        </button>
+        <button class="element__button-delete" type="button"></button>
         <img class="element__image" 
           src="#"
           alt="картинка" />
         <div class="element__description">
           <h2 class="element__title"></h2>
-          <button class="element__button-like" type="button"></button>
+          <div class="element__like-box">
+            <button class="element__button-like" type="button"></button>
+            <p class="element__counter-likes"></p>
+          </div>
         </div>
       </article>
     </template>

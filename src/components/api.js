@@ -20,7 +20,7 @@ const processResponce = function (res) {
 const fetchGetUser = () => {
     return fetch(`${config.baseUrl}/users/me`, {
       method: 'GET',
-      headers: config.headers,
+      headers: config.headers
     })
     .then(processResponce);
   };

@@ -1,0 +1,18 @@
+.pop-up__heading-confirm {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    margin: 30px 36px 0;
+    transition: all 0.6s ease-out;
+  }
+  
+  @media screen and (max-width: 935px) {
+    .pop-up__heading-confirm {
+      font-size: 18px;
+      line-height: 22px;
+      margin: 35px 22px 10px;
+    }
+  }
+  

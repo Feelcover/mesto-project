@@ -19,23 +19,11 @@ import { addElement, cardRender } from './card';
 import { сontentElements } from './сontentElements.js';
 import { enableValidation } from './validation.js';
 
-import { closePopup, openPopup } from './modal.js';
+import { closePopup, openPopup, closePopupsRelease } from './utils.js';
 
 cardRender(сontentElements);
+closePopupsRelease();
 
-//Закрытие окон
-allPopups.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains('pop-up_opened')) {
-      closePopup(popup);
-    }
-  });
-  popup.addEventListener('click', (evt) => {
-    if (evt.target.closest('.pop-up__close')) {
-      closePopup(popup);
-    }
-  });
-});
 
 // Сохранение профиля
 editForm.addEventListener('submit', (evt) => {
@@ -60,11 +48,12 @@ addForm.addEventListener('submit', (evt) => {
 // Вызов функции добавления карточки
     addElement(newElement);
     addForm.reset();
-    //закрытие попапа
-    closePopup(addPopup);
-    popupSubmitButton.classList.add('pop-up__submit_disabled');
-    popupSubmitButton.disabled = true;
-  });
+    
+//закрытие попапа
+closePopup(addPopup);
+popupSubmitButton.classList.add('pop-up__submit_disabled');
+  popupSubmitButton.disabled = true;
+});
 
 // Кнопка редактирования профиля
 editButton.addEventListener('click', function () {

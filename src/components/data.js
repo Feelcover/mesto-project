@@ -20,8 +20,10 @@ const addForm = addPopup.querySelector('.pop-up__container'); // форма до
 const addCardName = addPopup.querySelector('.pop-up__item_data_name'); // Поле ввода названия
 const addCardDescription = addPopup.querySelector('.pop-up__item_data_description'); //Поле ввода ссылки на фото
 const profileAddButton = profile.querySelector('.profile__add-button'); // Добавление профиля
-const popupSubmitButton = addForm.querySelector('.pop-up__submit')//добавление кнопки сабмит 
-
+const popupSubmitButton = addForm.querySelector('.pop-up__submit'); //Кнопки отправки 
+const confirmPopup = document.querySelector('#confirmPop-up'); //Окно подтверджения удаления элемента
+const confirmForm = confirmPopup.querySelector('.pop-up__container');// Форма подтверждения удаления элемента
+const confirmButtonSubmit = confirmForm.querySelector('.pop-up__submit');// Кнопка подтверждения удаления элемента
 
 
 const editPopup = document.querySelector('#editPop-up'); // Редактирование профиля
@@ -29,6 +31,12 @@ const editForm = editPopup.querySelector('.pop-up__container'); //Форма р�
 const editCardName = editPopup.querySelector('.pop-up__item_data_name'); // Поле ввода редактирования имени профиля
 const editCardDescription = editPopup.querySelector('.pop-up__item_data_description'); //Поле ввода редактирования описания профиля
 const editButton = document.querySelector('.profile__edit-button'); // Кнопка редактирования профиля
+
+const createAvatar = document.querySelector('#createAvatarPopup'); // Окно редактирования аватара
+const createAvatarForm = createAvatar.querySelector('.pop-up__container'); //Форма редактирования аватара
+const createAvatarLink = document.querySelector('#avatarLink');// Инпут для ссылки редактирования аватара
+const createAvatarSubmit = createAvatar.querySelector('.pop-up__submit'); //Кнопка редактирования аватара
+
 
 
 const openImage = document.querySelector('#OpenImage'); // Форма открытия изображения
@@ -59,5 +67,12 @@ export {
     openImage,
     fullScreenImage,
     fullscreenImageDescription,
-    allPopups
+    allPopups,
+    confirmPopup,
+    confirmForm,
+    confirmButtonSubmit,
+    createAvatar,
+    createAvatarForm,
+    createAvatarLink,
+    createAvatarSubmit
 }
