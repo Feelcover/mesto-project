@@ -11,18 +11,19 @@ import {
   editForm,
   editCardName,
   editCardDescription,
-  editButton,
-  allPopups,
   popupSubmitButton
 } from './data.js';
 import { addElement, cardRender } from './card';
 import { сontentElements } from './сontentElements.js';
 import { enableValidation } from './validation.js';
-
+import { editProfile, openAddElementPopup, openCreateAvatarPopup } from './modal.js';
 import { closePopup, openPopup, closePopupsRelease } from './utils.js';
 
 cardRender(сontentElements);
 closePopupsRelease();
+editProfile();
+openAddElementPopup();
+openCreateAvatarPopup();
 
 
 // Сохранение профиля
@@ -40,14 +41,14 @@ addForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
 // Создание объекта
-    const newElement = {
-      name: addCardName.value,
-      link: addCardDescription.value,
-    };
+const newElement = {
+  name: addCardName.value,
+  link: addCardDescription.value,
+};
 
 // Вызов функции добавления карточки
-    addElement(newElement);
-    addForm.reset();
+addElement(newElement);
+addForm.reset();
     
 //закрытие попапа
 closePopup(addPopup);
@@ -55,18 +56,7 @@ popupSubmitButton.classList.add('pop-up__submit_disabled');
   popupSubmitButton.disabled = true;
 });
 
-// Кнопка редактирования профиля
-editButton.addEventListener('click', function () {
-  editCardName.value = profileName.textContent;
-  editCardDescription.value = profileDescription.textContent;
-  openPopup(editPopup);
-});
 
-
-// Кнопка добавления карточки
-profileAddButton.addEventListener('click', function () {
-  openPopup(addPopup);
-});
 
 enableValidation({
   inactiveButtonClass: 'pop-up__submit_disabled',

@@ -35,9 +35,8 @@ const editButton = document.querySelector('.profile__edit-button'); // Кноп�
 const createAvatar = document.querySelector('#createAvatarPopup'); // Окно редактирования аватара
 const createAvatarForm = createAvatar.querySelector('.pop-up__container'); //Форма редактирования аватара
 const createAvatarLink = document.querySelector('#avatarLink');// Инпут для ссылки редактирования аватара
-const createAvatarSubmit = createAvatar.querySelector('.pop-up__submit'); //Кнопка редактирования аватара
-
-
+const createAvatarSubmit = createAvatar.querySelector('.pop-up__submit'); //Кнопка отправки формы ред. аватара
+const createAvatarButton = profile.querySelector('.profile__avatar-button'); // Кнопка редактирования аватара
 
 const openImage = document.querySelector('#OpenImage'); // Форма открытия изображения
 const fullScreenImage = openImage.querySelector('.pop-up__fullscreen-image'); // Изображение
@@ -74,5 +73,6 @@ export {
     createAvatar,
     createAvatarForm,
     createAvatarLink,
-    createAvatarSubmit
+    createAvatarSubmit,
+    createAvatarButton
 }
