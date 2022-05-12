@@ -12,8 +12,7 @@ const profileMain = profile.querySelector('.profile__main'); // Контентн
 const profileInfo = contentPage.querySelector('.profile__info'); //Поля ввода профиля
 const profileName = profileInfo.querySelector('.profile__name'); // Имя профиля
 const profileDescription = profileInfo.querySelector('.profile__description'); // Описание
-
-
+const profileAvatar = profile.querySelector('.profile__avatar'); // Фото профиля
 
 const addPopup = document.querySelector('#addPop-up'); // Добавление элементов
 const addForm = addPopup.querySelector('.pop-up__container'); // форма добавления элемента
@@ -21,6 +20,8 @@ const addCardName = addPopup.querySelector('.pop-up__item_data_name'); // Пол
 const addCardDescription = addPopup.querySelector('.pop-up__item_data_description'); //Поле ввода ссылки на фото
 const profileAddButton = profile.querySelector('.profile__add-button'); // Добавление профиля
 const popupSubmitButton = addForm.querySelector('.pop-up__submit'); //Кнопки отправки 
+
+
 const confirmPopup = document.querySelector('#confirmPop-up'); //Окно подтверджения удаления элемента
 const confirmForm = confirmPopup.querySelector('.pop-up__container');// Форма подтверждения удаления элемента
 const confirmButtonSubmit = confirmForm.querySelector('.pop-up__submit');// Кнопка подтверждения удаления элемента
@@ -31,6 +32,8 @@ const editForm = editPopup.querySelector('.pop-up__container'); //Форма р�
 const editCardName = editPopup.querySelector('.pop-up__item_data_name'); // Поле ввода редактирования имени профиля
 const editCardDescription = editPopup.querySelector('.pop-up__item_data_description'); //Поле ввода редактирования описания профиля
 const editButton = document.querySelector('.profile__edit-button'); // Кнопка редактирования профиля
+const profileEditSubmit = editForm.querySelector('.pop-up__submit'); //Отправка данных профиля
+
 
 const createAvatar = document.querySelector('#createAvatarPopup'); // Окно редактирования аватара
 const createAvatarForm = createAvatar.querySelector('.pop-up__container'); //Форма редактирования аватара
@@ -74,5 +77,7 @@ export {
     createAvatarForm,
     createAvatarLink,
     createAvatarSubmit,
-    createAvatarButton
+    createAvatarButton,
+    profileEditSubmit,
+    profileAvatar
 }

@@ -1,37 +1,29 @@
 import {
-    contentPage,
-    elementTemplate,
-    elements,
-    profile,
-    profileMain,
-    profileInfo,
     profileName,
     profileDescription,
     addPopup,
-    addForm,
-    addCardName,
-    addCardDescription,
     profileAddButton,
     popupSubmitButton,
     editPopup,
-    editForm,
     editCardName,
     editCardDescription,
     editButton,
-    openImage,
-    fullScreenImage,
-    fullscreenImageDescription,
-    allPopups,
-    confirmPopup,
-    confirmForm,
-    confirmButtonSubmit,
     createAvatar,
-    createAvatarForm,
-    createAvatarLink,
     createAvatarSubmit,
     createAvatarButton
   } from './data.js';
   import {openPopup} from './utils.js';
+
+
+//Слушатель на кнопке аватара
+function openCreateAvatarPopup() {
+  createAvatarButton.addEventListener('click', function () {
+      openPopup(createAvatar);
+      createAvatarSubmit.classList.add("popup__submit_disabled");
+      createAvatarSubmit.disabled = true;
+ });
+}
+
 
 
 // Кнопка редактирования профиля
@@ -50,15 +42,6 @@ function openAddElementPopup () {
     profileAddButton.addEventListener('click', function () {
       openPopup(addPopup);
     });
-    }
-
-//Слушатель на кнопке аватара
-function openCreateAvatarPopup() {
-    createAvatarButton.addEventListener('click', function () {
-        openPopup(createAvatar);
-        createAvatarSubmit.classList.add("popup__submit_disabled");
-        createAvatarSubmit.disabled = true;
-   });
 }
 
 export { editProfile, openAddElementPopup, openCreateAvatarPopup };

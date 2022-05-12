@@ -56,7 +56,7 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
     });
   };
   
- export const enableValidation = (settings) => {
+const enableValidation = (settings) => {
     const formList = Array.from(document.querySelectorAll(settings.formSelector));
     formList.forEach((formElement) => {
       formElement.addEventListener('submit', function (evt) {
@@ -65,3 +65,5 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
       setEventListeners(formElement, settings);
     });
   };
+  
+  export{ enableValidation };

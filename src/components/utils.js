@@ -1,5 +1,5 @@
-import { popupSubmitButton, allPopups, confirmButtonSubmit } from './data.js'
-
+import { popupSubmitButton, allPopups, confirmButtonSubmit, confirmPopup} from './data.js'
+import { confirmedCardDeletion } from './card.js'
 //функция открытия элемента
 function openPopup(popup) {
     popup.classList.add('pop-up_opened');
@@ -10,11 +10,16 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('pop-up_opened');
   document.removeEventListener('keydown', handleEscKey);
+
+  //Снимаем слушатель с открытых попапов подтверждения удаления
+  if (popup === confirmPopup) {
+    confirmButtonSubmit.removeEventListener('click', confirmedCardDeletion);
+  }
 }
 
 // Функция закрытия клавишей ESC
 function handleEscKey(evt) {
-  if (evt.key === "Escape") {
+  if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.pop-up_opened');
     closePopup(openedPopup);
   }

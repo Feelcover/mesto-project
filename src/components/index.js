@@ -9,52 +9,40 @@ import {
   profileAddButton,
   editPopup,
   editForm,
-  editCardName,
+  elements,
   editCardDescription,
-  popupSubmitButton
+  popupSubmitButton,
+  createAvatarForm,
+  profileAvatar
 } from './data.js';
-import { addElement, cardRender } from './card';
-import { сontentElements } from './сontentElements.js';
+import { createElementCard } from './card.js';
 import { enableValidation } from './validation.js';
 import { editProfile, openAddElementPopup, openCreateAvatarPopup } from './modal.js';
-import { closePopup, openPopup, closePopupsRelease } from './utils.js';
+import { closePopup, closePopupsRelease } from './utils.js';
+import { saveUserInfoProfile, createUserAvatar, addElementCard } from './profile.js'
+import { fetchGetUser, fetchGetInitialElements } from './api.js';
+export let dataFromServer = null;
 
-cardRender(сontentElements);
 closePopupsRelease();
 editProfile();
 openAddElementPopup();
 openCreateAvatarPopup();
 
 
-// Сохранение профиля
-editForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    // Заполнение полей введенными данными
-    profileName.textContent = editCardName.value;
-    profileDescription.textContent = editCardDescription.value;
-    closePopup(editPopup);
-  });
+createAvatarForm.addEventListener('submit', createUserAvatar);
+editForm.addEventListener('submit', saveUserInfoProfile);
+addForm.addEventListener('submit', addElementCard);
 
-
-//Добавление карточки
-addForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-
-// Создание объекта
-const newElement = {
-  name: addCardName.value,
-  link: addCardDescription.value,
-};
-
-// Вызов функции добавления карточки
-addElement(newElement);
-addForm.reset();
-    
-//закрытие попапа
-closePopup(addPopup);
-popupSubmitButton.classList.add('pop-up__submit_disabled');
-  popupSubmitButton.disabled = true;
-});
+Promise.all([fetchGetUser(), fetchGetInitialElements()])
+  .then(([userData, cardsData]) => {
+    dataFromServer = userData;
+    profileName.textContent = userData.name;
+    profileDescription.textContent = userData.about;
+    profileAvatar.src = userData.avatar;
+    const cards = cardsData.map((card) => createElementCard(card, userData._id));
+    elements.prepend(...cards);
+  })
+  .catch((err) => console.log(err));
 
 
 

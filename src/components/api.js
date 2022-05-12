@@ -1,9 +1,9 @@
 //Данные сервера
 const config = {
-    baseURL: 'https://mesto.nomoreparties.co/v1/plus-cohort-9',
+    baseURL: "https://nomoreparties.co/v1/plus-cohort-9",
     headers: {
-        authorization: 'cda53605-ab20-47f0-90b4-9efa5160708a',
-        'Content-Type': 'application/json'
+        authorization: "cda53605-ab20-47f0-90b4-9efa5160708a",
+        "Content-Type": "application/json"
     }
 }
 
@@ -19,7 +19,7 @@ const processResponce = function (res) {
 //Данные пользователя
 const fetchGetUser = () => {
     return fetch(`${config.baseUrl}/users/me`, {
-      method: 'GET',
+      method: "GET",
       headers: config.headers
     })
     .then(processResponce);
@@ -28,7 +28,7 @@ const fetchGetUser = () => {
 //Редактирование данных пользователя
 const fetchEditUser = (Name, Info) => {
     return fetch(`${config.baseUrl}/users/me`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: config.headers,
       body: JSON.stringify({
         name: Name,
@@ -41,7 +41,7 @@ const fetchEditUser = (Name, Info) => {
 //Редактирование аватарки  
 const fetchEditAvatar = (link) => {
     return fetch(`${config.baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: config.headers,
       body: JSON.stringify({
         avatar: link,
@@ -52,7 +52,7 @@ const fetchEditAvatar = (link) => {
 //Запрос стартовых элементов
 const fetchGetInitialElements = () => {
     return fetch(`${config.baseUrl}/cards`, {
-      method: 'GET',
+      method: "GET",
       headers: config.headers,
     })
     .then(processResponce);
@@ -70,7 +70,7 @@ const fetchLikes = (id, method) => {
 //Добавление нового элемента
 const fetchAddNewElement = (elementName, imageLink) => {
     return fetch(`${config.baseUrl}/cards`, {
-      method: 'POST',
+      method: "POST",
       headers: config.headers,
       body: JSON.stringify({
         name: elementName,
@@ -83,7 +83,7 @@ const fetchAddNewElement = (elementName, imageLink) => {
 //Удаление элемента
 const fetchDeleteElement = (id) => {
     return fetch(`${config.baseUrl}/cards/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: config.headers,
     })
     .then(processResponce);
