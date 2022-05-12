@@ -2,25 +2,19 @@ import '../pages/index.css';
 import {
   profileName,
   profileDescription,
-  addPopup,
   addForm,
-  addCardName,
-  addCardDescription,
-  profileAddButton,
-  editPopup,
   editForm,
   elements,
-  editCardDescription,
-  popupSubmitButton,
   createAvatarForm,
   profileAvatar
 } from './data.js';
 import { createElementCard } from './card.js';
 import { enableValidation } from './validation.js';
 import { editProfile, openAddElementPopup, openCreateAvatarPopup } from './modal.js';
-import { closePopup, closePopupsRelease } from './utils.js';
+import { closePopupsRelease } from './utils.js';
 import { saveUserInfoProfile, createUserAvatar, addElementCard } from './profile.js'
 import { fetchGetUser, fetchGetInitialElements } from './api.js';
+
 export let dataFromServer = null;
 
 closePopupsRelease();

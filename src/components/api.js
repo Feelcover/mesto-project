@@ -1,6 +1,6 @@
 //Данные сервера
 const config = {
-    baseURL: "https://nomoreparties.co/v1/plus-cohort-9",
+    baseUrl: "https://nomoreparties.co/v1/plus-cohort-9",
     headers: {
         authorization: "cda53605-ab20-47f0-90b4-9efa5160708a",
         "Content-Type": "application/json"
