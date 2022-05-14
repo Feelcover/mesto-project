@@ -2,82 +2,18 @@ import '../pages/index.css';
 import {
   profileName,
   profileDescription,
-  addPopup,
   addForm,
-  addCardName,
-  addCardDescription,
-  profileAddButton,
-  editPopup,
   editForm,
-  editCardName,
-  editCardDescription,
-  editButton,
-  allPopups,
-  popupSubmitButton
+  elements,
+  createAvatarForm,
+  profileAvatar
 } from './data.js';
-import { addElement, cardRender } from './card';
-import { сontentElements } from './сontentElements.js';
+import { createElementCard, addElementCard } from './card.js';
 import { enableValidation } from './validation.js';
-
-import { closePopup, openPopup } from './modal.js';
-
-cardRender(сontentElements);
-
-//Закрытие окон
-allPopups.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains('pop-up_opened')) {
-      closePopup(popup);
-    }
-  });
-  popup.addEventListener('click', (evt) => {
-    if (evt.target.closest('.pop-up__close')) {
-      closePopup(popup);
-    }
-  });
-});
-
-// Сохранение профиля
-editForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    // Заполнение полей введенными данными
-    profileName.textContent = editCardName.value;
-    profileDescription.textContent = editCardDescription.value;
-    closePopup(editPopup);
-  });
-
-
-//Добавление карточки
-addForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-
-// Создание объекта
-    const newElement = {
-      name: addCardName.value,
-      link: addCardDescription.value,
-    };
-
-// Вызов функции добавления карточки
-    addElement(newElement);
-    addForm.reset();
-    //закрытие попапа
-    closePopup(addPopup);
-    popupSubmitButton.classList.add('pop-up__submit_disabled');
-    popupSubmitButton.disabled = true;
-  });
-
-// Кнопка редактирования профиля
-editButton.addEventListener('click', function () {
-  editCardName.value = profileName.textContent;
-  editCardDescription.value = profileDescription.textContent;
-  openPopup(editPopup);
-});
-
-
-// Кнопка добавления карточки
-profileAddButton.addEventListener('click', function () {
-  openPopup(addPopup);
-});
+import { editProfile, openAddElementPopup, openCreateAvatarPopup } from './modal.js';
+import { closePopupsRelease } from './utils.js';
+import { saveUserInfoProfile, createUserAvatar } from './profile.js'
+import { fetchGetUser, fetchGetInitialElements } from './api.js';
 
 enableValidation({
   inactiveButtonClass: 'pop-up__submit_disabled',
@@ -87,5 +23,29 @@ enableValidation({
   inputSelector: '.pop-up__item',
   submitButtonSelector: '.pop-up__submit',
 });
+
+closePopupsRelease();
+editProfile();
+openAddElementPopup();
+openCreateAvatarPopup();
+
+createAvatarForm.addEventListener('submit', createUserAvatar);
+editForm.addEventListener('submit', saveUserInfoProfile);
+addForm.addEventListener('submit', addElementCard);
+
+export let dataFromServer = null;
+Promise.all([fetchGetUser(), fetchGetInitialElements()])
+  .then(([userData, cardsData]) => {
+    dataFromServer = userData;
+    profileAvatar.src = userData.avatar;
+    profileName.textContent = userData.name;
+    profileDescription.textContent = userData.about;
+    const cards = cardsData.map((card) => createElementCard(card, userData._id));
+    elements.prepend(...cards);
+  })
+  .catch((err) => console.log(err));
+
+
+
 
 
