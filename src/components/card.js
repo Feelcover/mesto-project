@@ -1,13 +1,20 @@
 import { openPopup, closePopup, renderLoading } from './utils.js';
-import { fetchDeleteElement, fetchLikes } from './api.js';
+import { fetchDeleteElement, fetchLikes, fetchAddNewElement } from './api.js';
 import {
-    elementTemplate,
-    openImage,
-    fullScreenImage,
-    fullscreenImageDescription,
-    confirmPopup,
-    confirmButtonSubmit
+  elementTemplate,
+  elements,
+  addPopup,
+  addForm,
+  addCardName,
+  addCardDescription,
+  popupSubmitButton,
+  openImage,
+  fullScreenImage,
+  fullscreenImageDescription,
+  confirmPopup,
+  confirmButtonSubmit
   } from './data.js';
+  import { dataFromServer } from './index.js'
 
 //Переменная для перезаписи данных с сервера
 let cardsForDelete = null;
