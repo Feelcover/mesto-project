@@ -17,7 +17,9 @@
 * Git
 * Git Pages
 * FIGMA
-* JavaScript
+* JavaScript modules
+* WebPack Server
+* Deploy on Gh-pages
 
 ### Cсылка на просмотр работы: [ССЫЛКА](https://feelcover.github.io/mesto-project/)
 
