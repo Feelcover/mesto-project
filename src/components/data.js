@@ -1,7 +1,7 @@
 const contentPage = document.querySelector('.content'); // Контентная часть
 
 
-const elementTemplate = document.querySelector('.element-template'); // Шаблон элемента
+const elementTemplate = document.querySelector('.element-template').content; // Шаблон элемента
 
 const elements = contentPage.querySelector('.elements'); //Директория для вставки элементов
 

@@ -32,7 +32,7 @@ function handleDeleteCard(cardElement, _id) {
   confirmButtonSubmit.addEventListener('click', confirmedCardDeletion);
 }
 
-
+//Удаление элемента
 function submitDeleteCardConfirmed(cardsForDelete) {
   if (!cardsForDelete) return;
 
@@ -83,7 +83,7 @@ function createElementCard({ name, link, _id, owner, likes }, myId) {
       true
     );
   }
-
+//Вставка изображения в попап
   cardImage.addEventListener('click', function () {
     fullScreenImage.src = cardImage.src;
     fullScreenImage.alt = name;
