@@ -112,4 +112,21 @@ function createElementCard({ name, link, _id, owner, likes }, myId) {
   return cardElement;
 }
 
-export { confirmedCardDeletion, createElementCard, submitDeleteCardConfirmed }
+function addElementCard(evt) {
+  evt.preventDefault();
+  renderLoading(true, popupSubmitButton);
+  fetchAddNewElement(addCardName.value, addCardDescription.value)
+    .then((card) => {
+      elements.prepend(createElementCard(card, dataFromServer._id));
+    })
+    .then(() => {
+      closePopup(addPopup);
+      addForm.reset();
+      popupSubmitButton.classList.add('pop-up__submit_disabled');
+      popupSubmitButton.disabled = true;
+    })
+    .catch((err) => console.log(err))
+    .finally(() => renderLoading(false, popupSubmitButton));
+}
+
+export { confirmedCardDeletion, createElementCard, submitDeleteCardConfirmed, addElementCard }

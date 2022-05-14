@@ -24,8 +24,6 @@ function openCreateAvatarPopup() {
  });
 }
 
-
-
 // Кнопка редактирования профиля
 function editProfile () {
     editButton.addEventListener('click', function () {

@@ -1,13 +1,11 @@
 const contentPage = document.querySelector('.content'); // Контентная часть
 
-
 const elementTemplate = document.querySelector('.element-template').content; // Шаблон элемента
 
 const elements = contentPage.querySelector('.elements'); //Директория для вставки элементов
 
 const profile = contentPage.querySelector('.profile'); // Находим секцию профиля
 const profileMain = profile.querySelector('.profile__main'); // Контентный блок профиля
-
 
 const profileInfo = contentPage.querySelector('.profile__info'); //Поля ввода профиля
 const profileName = profileInfo.querySelector('.profile__name'); // Имя профиля
@@ -21,11 +19,9 @@ const addCardDescription = addPopup.querySelector('.pop-up__item_data_descriptio
 const profileAddButton = profile.querySelector('.profile__add-button'); // Добавление профиля
 const popupSubmitButton = addForm.querySelector('.pop-up__submit'); //Кнопки отправки 
 
-
 const confirmPopup = document.querySelector('#confirmPop-up'); //Окно подтверджения удаления элемента
 const confirmForm = confirmPopup.querySelector('.pop-up__container');// Форма подтверждения удаления элемента
 const confirmButtonSubmit = confirmForm.querySelector('.pop-up__submit');// Кнопка подтверждения удаления элемента
-
 
 const editPopup = document.querySelector('#editPop-up'); // Редактирование профиля
 const editForm = editPopup.querySelector('.pop-up__container'); //Форма редактирования профиля
@@ -33,7 +29,6 @@ const editCardName = editPopup.querySelector('.pop-up__item_data_name'); // По
 const editCardDescription = editPopup.querySelector('.pop-up__item_data_description'); //Поле ввода редактирования описания профиля
 const editButton = document.querySelector('.profile__edit-button'); // Кнопка редактирования профиля
 const profileEditSubmit = editForm.querySelector('.pop-up__submit'); //Отправка данных профиля
-
 
 const createAvatar = document.querySelector('#createAvatarPopup'); // Окно редактирования аватара
 const createAvatarForm = createAvatar.querySelector('.pop-up__container'); //Форма редактирования аватара
