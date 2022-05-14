@@ -1,12 +1,6 @@
 import{
-    elements,
     profileName,
     profileDescription,
-    addPopup,
-    addForm,
-    addCardName,
-    addCardDescription,
-    popupSubmitButton,
     editPopup,
     editCardName,
     editCardDescription,
@@ -20,21 +14,12 @@ import{
 import {
     fetchEditUser,
     fetchEditAvatar,
-    fetchAddNewElement
   } from './api.js';
 
 import {
     closePopup,
     renderLoading
 } from './utils.js';
-
-import {
-    dataFromServer
-  } from './index.js';
-
-import {
-    createElementCard
-} from './card.js';
 
 //Редактирование аватара
 function createUserAvatar(evt) {

@@ -112,6 +112,7 @@ function createElementCard({ name, link, _id, owner, likes }, myId) {
   return cardElement;
 }
 
+//Получение карточки с сервера
 function addElementCard(evt) {
   evt.preventDefault();
   renderLoading(true, popupSubmitButton);
