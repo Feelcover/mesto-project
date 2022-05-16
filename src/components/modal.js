@@ -10,7 +10,8 @@ import {
     createAvatar,
     createAvatarLink,
     createAvatarButton,
-    profileEditSubmit
+    profileEditSubmit,
+    createAvatarSubmit
   } from './data.js';
   import {openPopup} from './utils.js';
 
@@ -23,8 +24,9 @@ function disableButton (button) {
 //Слушатель на кнопке аватара
 function handleCreateAvatarPopup() {
   createAvatarButton.addEventListener('click', function () {
-      openPopup(createAvatar);
+      disableButton(createAvatarSubmit);
       createAvatarLink.value= '';
+      openPopup(createAvatar);
  });
 }
 
