@@ -25,7 +25,7 @@ const cloneElement = () => {
   return elementTemplate.querySelector('.element').cloneNode(true);
 };
 
-// Слушатель с анонимной функцией(чтобы не брало null из глобальной области)
+// Слушатель с анонимной функцией
 confirmButtonSubmit.addEventListener('click', () => {
   submitDeleteCardConfirmed(cardsForDelete)
 });
