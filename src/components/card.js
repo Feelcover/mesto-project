@@ -25,10 +25,10 @@ const cloneElement = () => {
   return elementTemplate.querySelector('.element').cloneNode(true);
 };
 
-//Слушатель подтверждения удаления
-function confirmedCardDeletion() {
-  confirmButtonSubmit.addEventListener('click', submitDeleteCardConfirmed(cardsForDelete));
-}
+// Слушатель с анонимной функцией(чтобы не брало null из глобальной области)
+confirmButtonSubmit.addEventListener('click', () => {
+  submitDeleteCardConfirmed(cardsForDelete)
+});
 
 //Проверка совпадения карточки пользователя для возможности удаления
 function handleDeleteCard(cardElement, _id) {
@@ -38,6 +38,7 @@ function handleDeleteCard(cardElement, _id) {
   };
   openPopup(confirmPopup);
 }
+
 
 //Удаление элемента
 function submitDeleteCardConfirmed(cardsForDelete) {
@@ -83,7 +84,6 @@ function createElementCard({ name, link, _id, owner, likes }, myId) {
   );
 
   if (owner._id === myId) {
-    confirmButtonSubmit.addEventListener('click', confirmedCardDeletion);
     cardDeleteButton.addEventListener(
       'click',
       () => {
