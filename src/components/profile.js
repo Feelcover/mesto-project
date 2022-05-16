@@ -12,8 +12,8 @@ import{
 } from './data.js';
 
 import {
-    fetchEditUser,
-    fetchEditAvatar,
+    getEditUser,
+    getEditAvatar,
   } from './api.js';
 
 import {
@@ -21,16 +21,19 @@ import {
     renderLoading
 } from './utils.js';
 
+import {
+  disableButton
+} from './modal.js'
+
 //Редактирование аватара
 function createUserAvatar(evt) {
   evt.preventDefault();
   renderLoading(true, createAvatarSubmit);
-  fetchEditAvatar(createAvatarLink.value)
+  getEditAvatar(createAvatarLink.value)
     .then((data) => {
       profileAvatar.src = data.avatar;
       closePopup(createAvatar);
-      createAvatarSubmit.disabled = true;
-      createAvatarSubmit.classList.add('pop-up__submit_disabled');
+      disableButton(createAvatarSubmit);
     })
     .catch((err) => console.log(err))
     .finally(() => renderLoading(false, createAvatarSubmit));
@@ -40,7 +43,7 @@ function createUserAvatar(evt) {
 function saveUserInfoProfile(evt) {
     evt.preventDefault();
     renderLoading(true, profileEditSubmit);
-    fetchEditUser(editCardName.value, editCardDescription.value)
+    getEditUser(editCardName.value, editCardDescription.value)
       .then(() => {
         profileName.textContent = editCardName.value;
         profileDescription.textContent = editCardDescription.value;

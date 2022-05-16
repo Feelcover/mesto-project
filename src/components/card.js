@@ -1,5 +1,5 @@
 import { openPopup, closePopup, renderLoading } from './utils.js';
-import { fetchDeleteElement, fetchLikes, fetchAddNewElement } from './api.js';
+import { getDeleteElement, getLikes, getAddNewElement } from './api.js';
 import {
   elementTemplate,
   elements,
@@ -15,6 +15,7 @@ import {
   confirmButtonSubmit
   } from './data.js';
   import { dataFromServer } from './index.js'
+  import { disableButton } from './modal.js'
 
 //Переменная для перезаписи данных с сервера
 let cardsForDelete = null;
@@ -36,23 +37,22 @@ function handleDeleteCard(cardElement, _id) {
     _id,
   };
   openPopup(confirmPopup);
-  confirmButtonSubmit.addEventListener('click', confirmedCardDeletion);
 }
 
 //Удаление элемента
 function submitDeleteCardConfirmed(cardsForDelete) {
   if (!cardsForDelete) return;
 
-  renderLoading(true, confirmButtonSubmit);
+  renderLoading(true, confirmButtonSubmit, 'Да');
 
-  fetchDeleteElement(cardsForDelete._id)
+  getDeleteElement(cardsForDelete._id)
     .then(() => {
       cardsForDelete.cardElement.remove();
       closePopup(confirmPopup);
       cardsForDelete = null;
     })
     .catch((err) => console.log(err))
-    .finally(() => renderLoading(false, confirmButtonSubmit));
+    .finally(() => renderLoading(false, confirmButtonSubmit, 'Да'));
 }
 
 
@@ -72,22 +72,25 @@ function createElementCard({ name, link, _id, owner, likes }, myId) {
   cardImage.alt = name;
   cardLikesCounter.textContent = `${likes.length}`;
 
+  //Сверяем id лайков
   if (likes.some((like) => like._id === myId)) {
     cardLikeButton.classList.add('element__button-like_active');
   }
-
+  //Сверяем id для возможности удаления только своей карточки
   cardDeleteButton.classList.toggle(
     'element__button-delete_hidden',
     owner._id !== myId
   );
 
   if (owner._id === myId) {
+    confirmButtonSubmit.addEventListener('click', confirmedCardDeletion);
     cardDeleteButton.addEventListener(
       'click',
       () => {
         handleDeleteCard(cardElement, _id);
       },
       true
+      
     );
   }
 //Вставка изображения в попап
@@ -103,7 +106,7 @@ function createElementCard({ name, link, _id, owner, likes }, myId) {
   function handleLikes() {
     const myLike = likes.find((like) => like._id === myId);
     const method = myLike !== undefined ? "DELETE" : "PUT";
-    fetchLikes(_id, method)
+    getLikes(_id, method)
       .then((data) => {
         likes = data.likes;
         cardLikesCounter.textContent = `${likes.length}`;
@@ -123,18 +126,17 @@ function createElementCard({ name, link, _id, owner, likes }, myId) {
 function addElementCard(evt) {
   evt.preventDefault();
   renderLoading(true, popupSubmitButton);
-  fetchAddNewElement(addCardName.value, addCardDescription.value)
+  getAddNewElement(addCardName.value, addCardDescription.value)
     .then((card) => {
       elements.prepend(createElementCard(card, dataFromServer._id));
     })
     .then(() => {
       closePopup(addPopup);
       addForm.reset();
-      popupSubmitButton.classList.add('pop-up__submit_disabled');
-      popupSubmitButton.disabled = true;
+      disableButton(popupSubmitButton);
     })
     .catch((err) => console.log(err))
     .finally(() => renderLoading(false, popupSubmitButton));
 }
 
-export { confirmedCardDeletion, createElementCard, submitDeleteCardConfirmed, addElementCard }
+export { createElementCard, submitDeleteCardConfirmed, addElementCard }

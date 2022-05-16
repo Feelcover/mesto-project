@@ -1,5 +1,6 @@
 import { popupSubmitButton, allPopups, confirmButtonSubmit, confirmPopup} from './data.js'
-import { confirmedCardDeletion } from './card.js'
+// import { confirmedCardDeletion } from './card.js'
+
 //функция открытия элемента
 function openPopup(popup) {
     popup.classList.add('pop-up_opened');
@@ -10,11 +11,6 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('pop-up_opened');
   document.removeEventListener('keydown', handleEscKey);
-
-  //Снимаем слушатель с открытых попапов подтверждения удаления
-  if (popup === confirmPopup) {
-    confirmButtonSubmit.removeEventListener('click', confirmedCardDeletion);
-  }
 }
 
 // Функция закрытия клавишей ESC
@@ -24,17 +20,14 @@ function handleEscKey(evt) {
     closePopup(openedPopup);
   }
 }
-function renderLoading(isLoading, button) {
-    if (isLoading){
-        button.textContent= 'Сохранение...';
-    } else if (button === popupSubmitButton) {
-        button.textContent= 'Создать';
-    } else if (button === confirmButtonSubmit){
-        button.textContent= 'Да';
-    } else {
-        button.textContent= 'Сохранить';
-    }
+//Изменение текста кнопки самбит
+function renderLoading(isLoading, button, buttonText = 'Сохранить') {
+  if (isLoading) {
+    button.textContent = 'Сохранение...';
+  } else {
+    button.textContent = buttonText;
   }
+}
 
 //Закрытие окон
 function closePopupsRelease () {

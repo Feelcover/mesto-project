@@ -17,7 +17,7 @@ const processResponce = function (res) {
 
 
 //Данные пользователя
-const fetchGetUser = () => {
+const getUser = () => {
     return fetch(`${config.baseUrl}/users/me`, {
       method: "GET",
       headers: config.headers
@@ -26,7 +26,7 @@ const fetchGetUser = () => {
   };
 
 //Редактирование данных пользователя
-const fetchEditUser = (Name, Info) => {
+const getEditUser = (Name, Info) => {
     return fetch(`${config.baseUrl}/users/me`, {
       method: "PATCH",
       headers: config.headers,
@@ -39,7 +39,7 @@ const fetchEditUser = (Name, Info) => {
   };
 
 //Редактирование аватарки  
-const fetchEditAvatar = (link) => {
+const getEditAvatar = (link) => {
     return fetch(`${config.baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: config.headers,
@@ -50,7 +50,7 @@ const fetchEditAvatar = (link) => {
   };
 
 //Запрос стартовых элементов
-const fetchGetInitialElements = () => {
+const getInitialElements = () => {
     return fetch(`${config.baseUrl}/cards`, {
       method: "GET",
       headers: config.headers,
@@ -59,7 +59,7 @@ const fetchGetInitialElements = () => {
   };
 
 //Запрос количества лайков
-const fetchLikes = (id, method) => {
+const getLikes = (id, method) => {
     return fetch(`${config.baseUrl}/cards/likes/${id}`, {
       method: method,
       headers: config.headers,
@@ -68,7 +68,7 @@ const fetchLikes = (id, method) => {
   };
 
 //Добавление нового элемента
-const fetchAddNewElement = (elementName, imageLink) => {
+const getAddNewElement = (elementName, imageLink) => {
     return fetch(`${config.baseUrl}/cards`, {
       method: "POST",
       headers: config.headers,
@@ -81,7 +81,7 @@ const fetchAddNewElement = (elementName, imageLink) => {
   };
 
 //Удаление элемента
-const fetchDeleteElement = (id) => {
+const getDeleteElement = (id) => {
     return fetch(`${config.baseUrl}/cards/${id}`, {
       method: "DELETE",
       headers: config.headers,
@@ -90,5 +90,5 @@ const fetchDeleteElement = (id) => {
   };
 
 
-  export { fetchGetUser, fetchEditUser, fetchEditAvatar, fetchGetInitialElements,
-    fetchLikes, fetchAddNewElement, fetchDeleteElement };
+  export { getUser, getEditUser, getEditAvatar, getInitialElements,
+    getLikes, getAddNewElement, getDeleteElement };

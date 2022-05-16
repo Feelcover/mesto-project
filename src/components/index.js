@@ -10,10 +10,10 @@ import {
 } from './data.js';
 import { createElementCard, addElementCard } from './card.js';
 import { enableValidation } from './validation.js';
-import { editProfile, openAddElementPopup, openCreateAvatarPopup } from './modal.js';
+import { handleEditProfile, handleAddElementPopup, handleCreateAvatarPopup } from './modal.js';
 import { closePopupsRelease } from './utils.js';
 import { saveUserInfoProfile, createUserAvatar } from './profile.js'
-import { fetchGetUser, fetchGetInitialElements } from './api.js';
+import { getUser, getInitialElements } from './api.js';
 
 enableValidation({
   inactiveButtonClass: 'pop-up__submit_disabled',
@@ -25,16 +25,16 @@ enableValidation({
 });
 
 closePopupsRelease();
-editProfile();
-openAddElementPopup();
-openCreateAvatarPopup();
+handleEditProfile();
+handleAddElementPopup();
+handleCreateAvatarPopup();
 
 createAvatarForm.addEventListener('submit', createUserAvatar);
 editForm.addEventListener('submit', saveUserInfoProfile);
 addForm.addEventListener('submit', addElementCard);
 
 export let dataFromServer = null;
-Promise.all([fetchGetUser(), fetchGetInitialElements()])
+Promise.all([getUser(), getInitialElements()])
   .then(([userData, cardsData]) => {
     dataFromServer = userData;
     profileAvatar.src = userData.avatar;
