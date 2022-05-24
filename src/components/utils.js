@@ -1,4 +1,4 @@
-import { popupSubmitButton, allPopups, confirmButtonSubmit, confirmPopup} from './data.js'
+import { allPopups } from './data.js'
 // import { confirmedCardDeletion } from './card.js'
 
 //функция открытия элемента
